@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSource.cs" />
+    <Compile Include="DataStore.cs" />
     <Compile Include="IDataSource.cs" />
+    <Compile Include="IDataStore.cs" />
     <Compile Include="MyPureClass.cs" />
     <Compile Include="MyReaderClass.cs" />
+    <Compile Include="MyWriterClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

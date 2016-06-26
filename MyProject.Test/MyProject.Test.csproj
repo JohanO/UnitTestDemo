@@ -57,6 +57,8 @@
     <Compile Include="MyPureClassTest.cs" />
     <Compile Include="MyReaderClassTest.cs" />
     <Compile Include="MyReaderClassTest_NSubstitute.cs" />
+    <Compile Include="MyWriterClassTest.cs" />
+    <Compile Include="MyWriterClassTest_NSubstitute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

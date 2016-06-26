@@ -8,7 +8,7 @@ namespace MyProject
 {
     public class MyReaderClass
     {
-        private IDataSource _dataSource;
+        private readonly IDataSource _dataSource;
 
         public MyReaderClass(IDataSource dataSource)
         {
