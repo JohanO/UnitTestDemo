@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using MyProject.Data;
+using NUnit.Framework;
 
 namespace MyProject.Test
 {

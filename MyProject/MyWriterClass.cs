@@ -1,4 +1,6 @@
-﻿namespace MyProject
+﻿using MyProject.Data;
+
+namespace MyProject
 {
     public class MyWriterClass
     {

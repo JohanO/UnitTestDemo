@@ -1,4 +1,4 @@
-﻿namespace MyProject
+﻿namespace MyProject.Data
 {
     public class DataSource : IDataSource
     {

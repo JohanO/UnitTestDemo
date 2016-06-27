@@ -1,4 +1,5 @@
-﻿using NSubstitute;
+﻿using MyProject.Data;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace MyProject.Test
