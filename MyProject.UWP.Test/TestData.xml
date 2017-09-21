@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Data>
+  <Table Id="PureFunctionData">
+    <ParameterTypes>
+      <ParameterType Name="Input">Int32</ParameterType>
+      <ParameterType Name="Expected">Int32</ParameterType>
+    </ParameterTypes>
+    <Row>
+      <Parameter Name="Input">3</Parameter>
+      <Parameter Name="Expected">9</Parameter>
+    </Row>
+    <Row>
+      <Parameter Name="Input">4</Parameter>
+      <Parameter Name="Expected">16</Parameter>
+    </Row>
+    <Row>
+      <Parameter Name="Input">5</Parameter>
+      <Parameter Name="Expected">25</Parameter>
+    </Row>
+    <Row>
+      <Parameter Name="Input">-1</Parameter>
+      <Parameter Name="Expected">1</Parameter>
+    </Row>
+    <Row>
+      <Parameter Name="Input">0</Parameter>
+      <Parameter Name="Expected">0</Parameter>
+    </Row>
+  </Table>
+</Data>
