@@ -137,7 +137,7 @@
       <Version>2.0.7</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>5.4.0</Version>
+      <Version>5.4.2</Version>
     </PackageReference>
     <PackageReference Include="Taef.Managed">
       <Version>10.13.170629002</Version>
