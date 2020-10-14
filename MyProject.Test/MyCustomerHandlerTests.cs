@@ -1,22 +1,20 @@
-﻿using NUnit.Framework;
+﻿using FluentAssertions;
 using MyProject.Domain;
-using ExpectedObjects;
+using Xunit;
 
 namespace MyProject.Test
 {
-    [TestFixture()]
     public class MyCustomerHandlerTests
     {
         private MyCustomerHandler _underTest;
 
-        [SetUp]
-        public void SetUp()
+        public MyCustomerHandlerTests()
         {
             _underTest = new MyCustomerHandler();
         }
 
-        [Test]
-        public void CreateCustomer_ShouldReturnNewCustomer()
+        [Fact]
+        public void GivenCustomerInfo_CreateCustomer_ShouldReturnNewCustomer()
         {
             // Arrange
             var name = "Donald Duck";
@@ -27,14 +25,14 @@ namespace MyProject.Test
             var actual = _underTest.CreateCustomer(name, street, city);
 
             // Assert
-            Assert.That(actual.Id, Is.EqualTo(1));
-            Assert.That(actual.Name, Is.EqualTo(name));
-            Assert.That(actual.Address.Street, Is.EqualTo(street));
-            Assert.That(actual.Address.City, Is.EqualTo(city));
+            actual.Id.Should().Be(1);
+            actual.Name.Should().Be(name);
+            actual.Address.Street.Should().Be(street);
+            actual.Address.City.Should().Be(city);
         }
 
-        [Test]
-        public void CreateCustomer_ShouldReturnNewCustomer_UsingExpectedObjects()
+        [Fact]
+        public void GivenCustomerInfo_CreateCustomer_ShouldReturnNewCustomer_UsingEquivalentTo()
         {
             // Arrange
             var name = "Scrooge McDuck";
@@ -50,8 +48,8 @@ namespace MyProject.Test
                 Id = 1,
                 Name = name,
                 Address = new Address { Street = street, City = city }
-            }.ToExpectedObject();
-            expected.ShouldEqual(actual);
+            };
+            actual.Should().BeEquivalentTo(expected);
         }
     }
 }

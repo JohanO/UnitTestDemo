@@ -1,9 +1,9 @@
-﻿using MyProject.Data;
-using NUnit.Framework;
+﻿using FluentAssertions;
+using MyProject.Data;
+using Xunit;
 
 namespace MyProject.Test
 {
-    [TestFixture]
     public class MyWriterClassTest
     {
         private class DataStoreMock : IDataStore
@@ -16,26 +16,24 @@ namespace MyProject.Test
         private MyWriterClass _underTest;
         private DataStoreMock _dataStore;
 
-        [SetUp]
-        public void SetUp()
+        public MyWriterClassTest()
         {
             _dataStore = new DataStoreMock();
             _underTest = new MyWriterClass(_dataStore);
         }
 
-        [Test]
-        public void WriteData_With3_ShouldSave8()
+        [Fact]
+        public void Given3_WriteData_ShouldSave8()
         {
             // Arrange
             var input = 3;
 
             // Act
             _underTest.WriteData(input);
-            var actual = _dataStore.SavedData;
 
             // Assert
             var expected = 8;
-            Assert.That(actual, Is.EqualTo(expected));
+            _dataStore.SavedData.Should().Be(expected);
         }
     }
 }

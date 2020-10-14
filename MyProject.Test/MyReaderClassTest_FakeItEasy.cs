@@ -1,24 +1,18 @@
-﻿using FluentAssertions;
+﻿using FakeItEasy;
+using FluentAssertions;
 using MyProject.Data;
 using Xunit;
 
 namespace MyProject.Test
 {
-    public class MyReaderClassTest
+    public class MyReaderClassTest_FakeItEasy
     {
-        private class DataSourceStub : IDataSource
-        {
-            public int ValueToReturn { get; set; }
-
-            public int GetData() => ValueToReturn;
-        }
-
         private MyReaderClass _underTest;
-        private DataSourceStub _dataSource;
+        private IDataSource _dataSource;
 
-        public MyReaderClassTest()
+        public MyReaderClassTest_FakeItEasy()
         {
-            _dataSource = new DataSourceStub();
+            _dataSource = A.Fake<IDataSource>();
             _underTest = new MyReaderClass(_dataSource);
         }
 
@@ -26,7 +20,7 @@ namespace MyProject.Test
         public void GivenDataSource5AndInput3_ReadData_ShouldReturn8()
         {
             // Arrange
-            _dataSource.ValueToReturn = 5;
+            A.CallTo(() => _dataSource.GetData()).Returns(5);
             var input = 3;
 
             // Act

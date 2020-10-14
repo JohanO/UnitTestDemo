@@ -1,23 +1,21 @@
-﻿using MyProject.Data;
-using NSubstitute;
-using NUnit.Framework;
+﻿using FakeItEasy;
+using MyProject.Data;
+using Xunit;
 
 namespace MyProject.Test
 {
-    [TestFixture]
-    public class MyWriterClassTest_NSubstitute1
+    public class MyWriterClassTest_FakeItEasy
     {
         private MyWriterClass _underTest;
         private IDataStore _dataStore;
 
-        [SetUp]
-        public void SetUp()
+        public MyWriterClassTest_FakeItEasy()
         {
-            _dataStore = Substitute.For<IDataStore>();
+            _dataStore = A.Fake<IDataStore>();
             _underTest = new MyWriterClass(_dataStore);
         }
 
-        [Test]
+        [Fact]
         public void WriteData_With3_ShouldSave8()
         {
             // Arrange
@@ -28,7 +26,7 @@ namespace MyProject.Test
 
             // Assert
             var expected = 8;
-            _dataStore.Received().SaveData(expected);
+            A.CallTo(() => _dataStore.SaveData(expected)).MustHaveHappened();
         }
     }
 }
